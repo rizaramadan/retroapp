@@ -1,24 +1,9 @@
 <template>
   <div id="board-list">
     <a-row :gutter="16">
-      <a-col :span="6">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="6">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="6">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="6">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
+      <a-col v-for="board in boards" :key="board.name" :span="6">
+          <a-card :title="board.name" :bordered="false" style="margin-bottom: 16px">
+          <p>{{board.description}}</p>
         </a-card>
       </a-col>
     </a-row>
@@ -27,10 +12,33 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { BoardViewModel } from '@/entities/BoardViewModel'
 
 @Component
 export default class BoardList extends Vue {
   @Prop() private msg!: string;
+  private boards: Array<BoardViewModel> = [
+    {
+      name: 'Preetish',
+      description: '26'
+    },
+    {
+      name: 'John',
+      description: '30'
+    },
+    {
+      name: 'Doe',
+      description: '34'
+    },
+    {
+      name: 'air',
+      description: '34'
+    },
+    {
+      name: 'lagi',
+      description: '34'
+    }
+  ]
 }
 </script>
 
