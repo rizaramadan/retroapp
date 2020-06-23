@@ -1,6 +1,7 @@
 <template>
   <div id="board-list">
     <a-row :gutter="16">
+      <!--TODO: click each board to go to details -->
       <a-col v-for="board in boards" :key="board.Name" :span="6">
           <a-card :title="board.Name" :bordered="false" style="margin-bottom: 16px">
           <p>{{board.Description}}</p>
@@ -20,6 +21,7 @@ export default class BoardList extends Vue {
   private boards: Array<BoardViewModel> = []
 
   public async mounted () {
+    // TODO: move this code to some sort of service
     const response = await this.axios.get<BoardViewModel[]>('http://localhost:1323/api/boards')
     this.boards = response.data
   }
