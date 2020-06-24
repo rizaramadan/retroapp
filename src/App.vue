@@ -5,14 +5,11 @@
       <a-menu
         theme="dark"
         mode="horizontal"
-        :default-selected-keys="['2']"
+        :default-selected-keys="['1']"
         :style="{ lineHeight: '64px' }"
       >
         <a-menu-item key="1">
           <router-link to="/">Board List</router-link>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <router-link to="/board-detail">Board Detail</router-link>
         </a-menu-item>
       </a-menu>
     </a-layout-header>
@@ -20,7 +17,7 @@
       <router-view/>
     </a-layout-content>
     <a-layout-footer style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
+      Retro App
     </a-layout-footer>
   </a-layout>
 </template>
