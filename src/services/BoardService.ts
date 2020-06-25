@@ -12,6 +12,7 @@ export class BoardService {
 
   public async getAll (): Promise<BoardViewModel[]> {
     const response = await this.apiClient.get<BoardViewModel[]>('/boards')
+    console.log(`calling /boards get: ${JSON.stringify(response.data)}`)
     return response.data
   }
 }
