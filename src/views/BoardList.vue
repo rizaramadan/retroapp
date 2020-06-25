@@ -21,16 +21,18 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { BoardViewModel } from '@/entities/BoardViewModel'
+import { BoardService } from '@/services/BoardService'
 
 @Component
 export default class BoardList extends Vue {
   @Prop() private msg!: string;
   private boards: Array<BoardViewModel> = []
+  private boardService: BoardService = new BoardService()
 
   public async mounted () {
     // TODO: move this code to some sort of service
-    const response = await this.axios.get<BoardViewModel[]>('http://localhost:1323/api/boards')
-    this.boards = response.data
+    const boards = await this.boardService.getAll()
+    this.boards = boards
   }
 
   public newBoard () {
